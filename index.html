@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claw &amp; Conquer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="neon-grid"></div>
+  <header class="topbar">
+    <a class="logo" href="#top" aria-label="Claw and Conquer home"><span class="logo-claw">CLAW</span><span>CLAW<br><b>&amp; CONQUER</b></span></a>
+    <nav><a href="#play">Task machine</a><a href="#tasks">Task list</a><a href="#wins">Progress <span id="winCount">0</span></a></nav>
+    <div class="wallet"><span id="coinCount">0</span> coins earned</div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="play">
+      <div class="hero-copy"><p class="kicker">The task machine helps you choose what to do next.</p><h1>Choose a task and<br><span>make progress.</span></h1><p class="lede">Add a few responsibilities to the list, then use the claw to choose one. Completing it earns progress and helps maintain your visible daily streak.</p><a class="jump" href="#tasks">Add tasks to your list</a></div>
+      <div class="machine-zone">
+        <div class="arcade-machine" id="machine">
+          <div class="machine-head"><span class="light red"></span><span class="light yellow"></span><span class="light green"></span><strong>TASK<br>MACHINE</strong><span class="machine-title">CLAW<br><b>CONQUER</b></span></div>
+          <div class="glass"><div class="stars">TASKS WAITING TO BE CHOSEN</div><div class="rail"><span id="clawArm"></span><span class="claw"></span></div><div class="prizes"><i>SCHOOL</i><i>HOME</i><i>LIFE</i><i>WORK</i><i>HEALTH</i><i>STUDY</i></div><div class="glass-floor"></div></div>
+          <div class="control-panel"><div class="screen"><small id="machineStatus">The machine is ready.</small><b id="missionPreview">Add tasks to begin.</b></div><button class="joystick" id="grabButton" type="button"><span>Choose a task</span><b>Grab</b></button></div>
+          <div class="machine-base"><span>Add a task first.</span><span class="coin-slot"></span><span>The claw will choose one.</span></div>
+        </div>
+        <p class="machine-caption"><span>01</span> The task claw chooses from your open list.</p>
+      </div>
+    </section>
+
+    <section class="play-result hidden" id="result" aria-live="polite"><div class="result-icon">TASK</div><div><p class="kicker">The machine chose your next task.</p><h2 id="pickedTask">Your next task</h2><p id="pickedMeta"></p></div><button id="completeButton" type="button">Mark this task complete</button></section>
+
+    <section class="task-section" id="tasks">
+      <div class="section-heading"><div><p class="kicker">Your task list</p><h2>Add tasks for the machine to choose from.</h2></div><p class="section-note">You can add, edit, complete, or remove any task.<br>The machine only chooses tasks that are still open.</p></div>
+      <form class="add-form" id="taskForm"><input id="taskInput" maxlength="70" required placeholder="Type a task to load a prize..." /><select id="category"><option value="SCHOOL">SCHOOL</option><option value="HOME">HOME</option><option value="LIFE">LIFE</option></select><button type="submit">Add task</button><button class="infinite-button" id="infiniteButton" type="button">Generate a quick task</button></form>
+      <div class="queue-bar"><span><b id="queueCount">0</b> open tasks are ready</span><span id="streakText">Your current streak is 0 days.</span></div>
+      <div class="task-list" id="taskList"></div><div class="empty" id="emptyState"><div>The list is empty.</div><p>Add your first task so the machine has something to choose.</p></div>
+    </section>
+
+    <section class="score-strip" id="wins"><div><span class="score-number" id="xpCount">0</span><small>experience points earned</small></div><div><span class="score-number" id="completedCount">0</span><small>tasks completed</small></div><div><span class="score-number" id="streakCount">0</span><small>day streak</small></div><div class="score-message">Complete at least one task today, then return tomorrow to keep your streak going.<small class="return-note">Your streak is shown here so you can see why returning matters.</small></div></section>
+  </main>
+  <footer><span>Claw and Conquer task machine</span><span>Your progress stays on this device.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
